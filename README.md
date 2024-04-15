@@ -274,7 +274,7 @@ Checks consist of syntax checks on diagram files and spell-checks of this file.
 ## Updating Diagrams
 To create this diagram, [draw.io](https://app.diagrams.net/) was used.
 
-The source of this diagram is available within the `diagram.drawio` file.
+The source of this diagram is available within the `xml/diagram.xml` file.
 
 This is an XML file that you are unlikely to be able to adjust with an editor.
 
@@ -296,7 +296,7 @@ Make the desired changes to the diagram.
 After editing the diagram, save a new version of the XML document, and export
 a rendered version in `.png` format, then and add to a pull request.
 
-To save a copy of the `.drawio` XML file:
+To save a copy of the XML file:
 
 1. Select **File** -> **Save As** 
 2. Choose the type **XML File (.drawio)**
