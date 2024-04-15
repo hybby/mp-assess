@@ -1,0 +1,32 @@
+on: [push]
+
+jobs:
+  pr_checks:
+    runs-on: ubuntu-latest
+    name: Pull Request Validation
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install helper tools
+        run: sudo apt-get install libxml2-utils aspell
+      - name: Validate XML files
+        run: >
+         for xml in $(find . -name '*.xml') ; do
+           if xmllint --noout --nonet "${xml}" ; then
+             echo "XML file '${xml}' validated successfully."
+           else
+             echo "Error with XML validation of ${xml}!"
+             exit 1
+           fi
+         done
+      - name: Check README spelling (UK English)
+        run: |
+          export LANG="en_GB"
+          SPELLCHECK_RESULT=$(aspell list --wordlists "spelling/custom-wordlist.txt" < README.md)
+          if [[ -z ${SPELLCHECK_RESULT} ]] ; then
+            echo "Spelling of README.md checked successfully - zero errors identified"
+          else
+            echo "Spelling of README.md contains spelling errors:"
+            echo "${SPELLCHECK_RESULT}"
+            exit 1
+          fi
