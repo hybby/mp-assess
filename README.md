@@ -287,7 +287,7 @@ To edit it, perform the following:
 1. Access [draw.io](https://app.diagrams.net/) in a recent browser.
 2. Choose your desired diagram storage location ("Device" is usually fine).
 3. Select **Open Existing Diagram**
-4. Select the `diagram.drawio` file from this repository.
+4. Select the `xml/diagram.xml` file from this repository.
 
 Make the desired changes to the diagram.
 
